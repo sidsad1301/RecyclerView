@@ -1,4 +1,4 @@
-package com.example.recyclerview
+package com.example.recyclerview.adapters
 
 import android.content.Context
 import android.content.Intent
@@ -7,11 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.example.recyclerview.Supplier.hobbies
-import kotlinx.android.synthetic.main.activity_main.*
+import com.example.recyclerview.models.Hobby
+import com.example.recyclerview.R
 import kotlinx.android.synthetic.main.list_item.view.*
 
-class HobbiesAdapter(val context: Context, val hobbies: List<Hobby>): RecyclerView.Adapter<HobbiesAdapter.MyViewHolder>(){
+class HobbiesAdapter(val context: Context, private val hobbies: List<Hobby>): RecyclerView.Adapter<HobbiesAdapter.MyViewHolder>(){
 
     inner class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView){
         var currentHobby : Hobby? = null
@@ -29,7 +29,6 @@ class HobbiesAdapter(val context: Context, val hobbies: List<Hobby>): RecyclerVi
                 context.startActivity(Intent.createChooser(intent, "Share to :"))
             }
         }
-
 
         fun setData(hobby: Hobby?, pos: Int){
         itemView.txvTitle.text = hobby!!.title

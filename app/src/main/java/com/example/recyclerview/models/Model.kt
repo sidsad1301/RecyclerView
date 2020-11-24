@@ -1,4 +1,4 @@
-package com.example.recyclerview
+package com.example.recyclerview.models
 
 data class Hobby(var title: String)
 
